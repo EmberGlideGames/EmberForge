@@ -1,10 +1,18 @@
+import git
+import hashlib
+import hmac
+import os
+import shutil
+from blag import blag
 from flask import Flask, request, Response
 from werkzeug.exceptions import HTTPException
 from secret import secret
-import hashlib
-import hmac
 
 app = Flask(__name__)
+
+repo = git.Repo(".")
+input_dir = "./build"
+output_dir = "/var/www/emberglide"
 
 @app.route('/update', methods=['POST'])
 def respond():
@@ -15,9 +23,16 @@ def respond():
         print(e)
         return Response(status=e.status_code)
     # add logging
-    # clear existing webfiles from /var/www/emberglide
-    # run blag
-    # push the updated files to /var/www/emberglide
+    repo.remotes.orgin.pull()
+    blag.build(blag.parse_args(["build"]))
+    for src_dir, dirs, files in os.walk(root_src_dir):
+        dst_dir = src_dir.replace(input_dir, output_dir, 1)
+        if not os.path.exists(dst_dir):
+            os.makedirs(dst_dir)
+        for file_ in files:
+            src_file = os.path.join(src_dir, file_)
+            dst_file = os.path.join(dst_dir, file_)
+            shutil.move(src_file, dst_dir)
     return Response(status=202)
 
 
