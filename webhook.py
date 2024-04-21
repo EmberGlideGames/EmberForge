@@ -8,9 +8,7 @@ app = Flask(__name__)
 
 @app.route('/update', methods=['POST'])
 def respond():
-    data = request.json
     x256_hash = request.headers.get('x-hub-signature-256', default=None)
-    config = data['hook']['config']
     try:
         verify_signature(request.get_data(), secret, x256_hash)
     except HTTPException as e:
