@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Environment
+venv/
+
+# Built files
+build/
+
+# SECRETS!
+secret.py

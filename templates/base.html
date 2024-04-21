@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta name="author" content="{{ site.author }}">
+    {%- if description %}
+    <meta name="description" content="{{ description }}">
+    {%- else %}
+    <meta name="description" content="{{ site.description }}">
+    {%- endif %}
+    <link rel="alternate" href="/atom.xml" type="application/atom+xml">
+    <!-- Favicon descriptors  -->
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- End Favicon Descriptors -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JSJYPM17J0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JSJYPM17J0');
+    </script>
+    <title>{% block title %}{% endblock %} | {{ site.description }}</title>
+  </head>
+
+  <body>
+    <header>
+      <h1><a href="/">{{ site.title }}</a></h1>
+      <nav>
+        <h2>{{ site.description }}</h2>
+        <ul>
+          <li><h2><a href="/">Blog</a></h2></li>
+          <li><h2><a href="/archive.html">Archive</a></h2></li>
+          <li><h2><a href="/tags/">Tags</a></h2></li>
+          <li><h2><a href="/about.html">About Me</a></h2></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+    {% block content %}
+    {% endblock %}
+    </main>
+
+    <footer>
+      <p>This website was built with <a href="https://github.com/venthur/blag">blag</a>.
+      <br>
+      Subscribe to the <a href="/atom.xml">atom feed</a>.
+      <br>
+      Contact me via
+        <a rel="me" href="https://twitter.com/EmberGlideGames">X/Twitter</a> or
+        <a href="https://github.com/Loran425">Github</a>.
+      </p>
+    </footer>
+  </body>
+
+</html>
