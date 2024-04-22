@@ -10,7 +10,6 @@ from secret import secret
 
 app = Flask(__name__)
 
-repo = git.Repo(".")
 input_dir = "./build"
 output_dir = "/var/www/emberglide"
 
@@ -23,9 +22,17 @@ def respond():
         print(e)
         return Response(status=e.status_code)
     # add logging
-    repo.remotes.orgin.pull()
+    repo = git.Repo(".")
+    repo.remotes.origin.pull()
+    shutil.rmtree(output_dir, ignore_errors=True)
+    #for src_dir, dirs, files in reversed(os.walk(output_dir)):
+    #    for file_ in files:
+    #        os.remove(file_)
+    #    if src_dir != output_dir:
+    #        os.rmdir(src_dir)
+
     blag.build(blag.parse_args(["build"]))
-    for src_dir, dirs, files in os.walk(root_src_dir):
+    for src_dir, dirs, files in os.walk(input_dir):
         dst_dir = src_dir.replace(input_dir, output_dir, 1)
         if not os.path.exists(dst_dir):
             os.makedirs(dst_dir)
