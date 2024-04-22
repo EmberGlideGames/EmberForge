@@ -14,6 +14,4 @@ ensure to set a valid secret.
 
 <img alt="Webhook settings" src="./git-automation-photos/Git Webhooks 01.png" class="responsive">
 
-
-
-
+![Webhook settings](./git-automation-photos/Git Webhooks 01.png) {: .responsive }
