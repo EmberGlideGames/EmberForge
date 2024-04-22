@@ -164,3 +164,8 @@ header h2 {
   display: inline;
   font-size: 1.2rem;
 }
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
