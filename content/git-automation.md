@@ -14,7 +14,8 @@ First, you need to set up a webhook in your GitHub repository. Go to the reposit
 then to the "Webhooks" section. Click on "Add webhook" and enter the URL where you want to receive notifications and 
 ensure to set a valid secret.
 
-![Webhook settings](/git-automation-photos/Git Webhooks 01.png)
+
+![Webhook settings](/git-automation-photos/Git Webhooks 01.png){:class="img-responsive"}
 
 
 
